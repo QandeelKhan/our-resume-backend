@@ -105,7 +105,7 @@ INTERNAL_IPS = [
     # ...
 ]
 
-ROOT_URLCONF = 'djangoBoilerplate.urls'
+ROOT_URLCONF = 'OurResumeBackend.urls'
 
 TEMPLATES = [
     {
@@ -123,7 +123,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'djangoBoilerplate.wsgi.application'
+WSGI_APPLICATION = 'OurResumeBackend.wsgi.application'
 
 # Password validation
 

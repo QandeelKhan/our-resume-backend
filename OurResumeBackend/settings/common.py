@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # 'core',
     # 'tags',
     # 'likes',
+    'blog',
     # --USER MANAGEMENT,
     'rest_framework_simplejwt',
     'UserManagement',

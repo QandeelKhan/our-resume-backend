@@ -3,8 +3,7 @@ from decouple import config
 # from StrefrontBackend2.settings import BASE_DIR
 from ..settings.common import BASE_DIR
 
-# USE_SPACES = config('USE_SPACES', cast=bool, default=False)
-USE_SPACES = False
+USE_SPACES = config('USE_SPACES', cast=bool, default=False)
 
 if USE_SPACES:
     # settings

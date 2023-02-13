@@ -20,9 +20,20 @@ def validate_image(image):
         raise ValidationError("Invalid image: %s" % e)
 
 
+class Category(models.Model):
+    category_name = models.CharField(max_length=100)
+
+# for more then one images we need to create extra model like this
+
+
+class BlogPostImage(models.Model):
+    image = models.ImageField(upload_to='blog-images/',
+                              storage=fs, validators=[validate_image], blank=True, null=True)
+    image_links = models.CharField(max_length=500, blank=True, null=True)
+
+
 class BlogPost(models.Model):
     title = models.CharField(max_length=100)
-    # applying custom storage backend
     cover_image = models.ImageField(upload_to='blog-images/',
                                     storage=fs, validators=[validate_image])
     initial_paragraph = models.TextField()
@@ -30,13 +41,14 @@ class BlogPost(models.Model):
     quote = models.CharField(max_length=255)
     quote_writer = models.CharField(max_length=255)
     second_paragraph = models.TextField()
-    post_images = models.ImageField(upload_to='blog-images/',
-                                    storage=fs, validators=[validate_image])
+    post_images = models.ManyToManyField(
+        BlogPostImage, related_name='post_images')
     paragraph_after_image = models.TextField()
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

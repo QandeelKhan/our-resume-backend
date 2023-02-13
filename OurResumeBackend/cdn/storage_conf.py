@@ -1,5 +1,5 @@
 import os
-from decouple import config 
+from decouple import config
 # from StrefrontBackend2.settings import BASE_DIR
 from ..settings.common import BASE_DIR
 
@@ -16,11 +16,11 @@ if USE_SPACES:
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # static settings
     AWS_LOCATION = 'space-our-resume/static'
-    STATIC_URL = f'https://shopingly-space.fra1.digitaloceanspaces.com/{AWS_LOCATION}/'
+    STATIC_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{AWS_LOCATION}/'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     # public media settings
     PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
-    MEDIA_URL = f'https://shopingly-space.fra1.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}/'
+    MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}/'
 
     DEFAULT_FILE_STORAGE = '<space-name>.cdn.backends.MediaRootS3Boto3Storage'
 else:
@@ -34,4 +34,4 @@ else:
 # )
 # helping material
 # https://testdriven.io/blog/django-digitalocean-spaces/
-# https://shopingly-space.fra1.digitaloceanspaces.com/media/productimg/0_98drx4MegZUq4iTd.jpeg
+# https://our-space.nyc3.digitaloceanspaces.com

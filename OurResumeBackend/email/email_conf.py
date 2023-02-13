@@ -1,8 +1,8 @@
 from django.conf import settings
 import os
 from dotenv import load_dotenv
-from decouple import config
 load_dotenv()
+from decouple import config
 
 LOGIN_REDIRECT_URL = '/profile/'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

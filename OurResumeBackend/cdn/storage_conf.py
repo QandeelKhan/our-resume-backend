@@ -1,5 +1,5 @@
 import os
-from decouple import config
+from decouple import config 
 # from StrefrontBackend2.settings import BASE_DIR
 from ..settings.common import BASE_DIR
 

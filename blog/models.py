@@ -1,7 +1,11 @@
 from django.db import models
-from UserManagement.models import User
+# from UserManagement.models import User
 from django.core.files.storage import FileSystemStorage
 from PIL import Image
+# to make blog independent from User but getting
+from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 
 # make custom storage backend for image
@@ -30,7 +34,7 @@ class BlogPost(models.Model):
                                     storage=fs, validators=[validate_image])
     paragraph_after_image = models.TextField()
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='blog_posts')
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -42,10 +46,23 @@ class Comment(models.Model):
     post = models.ForeignKey(
         BlogPost, on_delete=models.CASCADE, related_name='comments')
     author_name = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='comments')
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comments')
     created_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     comment_text = models.TextField()
 
     def __str__(self):
         return self.comment_text
+
+
+class Reply(models.Model):
+    comment = models.ForeignKey(
+        Comment, on_delete=models.CASCADE, related_name='replies')
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='replies')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    reply_text = models.TextField()
+
+    def __str__(self):
+        return self.reply_text

@@ -24,13 +24,13 @@ if USE_SPACES:
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = BASE_DIR / "space-our-resume/static"
+    STATIC_ROOT = BASE_DIR / "space-our-resume/static/"
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
+    MEDIA_ROOT = BASE_DIR / 'space-our-resume/media/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'space-our-resume/'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'space-our-resume/'),
+# )
 # helping material
 # https://testdriven.io/blog/django-digitalocean-spaces/
 # https://our-space.nyc3.digitaloceanspaces.com

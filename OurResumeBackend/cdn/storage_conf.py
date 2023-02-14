@@ -20,8 +20,8 @@ if USE_SPACES:
     PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
     MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}/'
 
-    DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
-    STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.s3boto3.MediaRootS3Boto3Storage'
+    STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.s3boto3.StaticRootS3Boto3Storage'
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = BASE_DIR / "space-our-resume/static"

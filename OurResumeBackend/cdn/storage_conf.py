@@ -14,12 +14,13 @@ if USE_SPACES:
     AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # static settings
-    AWS_LOCATION = 'space-our-resume/static'
-    STATIC_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{AWS_LOCATION}'
+    # STATIC_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{AWS_LOCATION}'
+    # AWS_LOCATION = 'space-our-resume/static'
     # public media settings
-    PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
-    MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}'
+    # PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
+    # MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}'
 
+    AWS_LOCATION = f'https://our-space.nyc3.digitaloceanspaces.com'
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
     STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
 else:

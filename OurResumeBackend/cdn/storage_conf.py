@@ -28,9 +28,9 @@ else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'space-our-resume/static'),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'space-our-resume/'),
+)
 # helping material
 # https://testdriven.io/blog/django-digitalocean-spaces/
 # https://our-space.nyc3.digitaloceanspaces.com

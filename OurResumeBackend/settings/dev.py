@@ -40,23 +40,23 @@ ALLOWED_HOSTS = ["*"]
 # }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('PROD_DB_NAME'),
-#         'USER': os.getenv('PROD_DB_USER'),
-#         'PASSWORD': os.getenv('PROD_DB_PASSWORD'),
-#         'HOST': "app-f50b6b84-f0cf-46fb-ae93-f8b96dde1e70-do-user-12706543-0.b.db.ondigitalocean.com",
-#         'PORT': "25060"
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('PROD_DB_NAME'),
+        'USER': os.getenv('PROD_DB_USER'),
+        'PASSWORD': os.getenv('PROD_DB_PASSWORD'),
+        'HOST': "our-db-postgresql-nyc1-1995-do-user-13516508-0.b.db.ondigitalocean.com",
+        'PORT': "25060"
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 CELERY_BROKER_URL = 'redis://redis:6379/1'

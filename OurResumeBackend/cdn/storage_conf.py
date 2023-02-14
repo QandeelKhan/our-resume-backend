@@ -16,17 +16,17 @@ if USE_SPACES:
     # static settings
     AWS_LOCATION = 'space-our-resume/static'
     STATIC_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{AWS_LOCATION}/'
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     # public media settings
     PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
     MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}/'
 
-    DEFAULT_FILE_STORAGE = 'ourresumebackend.cdn.backends.MediaRootS3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
+    STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = BASE_DIR / "space-our-resume/static/"
+    STATIC_ROOT = BASE_DIR / "space-our-resume/static"
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'space-our-resume/media/'
+    MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
 
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'space-our-resume/'),

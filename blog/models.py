@@ -23,13 +23,16 @@ def validate_image(image):
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
 
-# for more then one images we need to create extra model like this
+# for more then one images and image_links we created BlogPostImage model
 
 
 class BlogPostImage(models.Model):
-    image = models.ImageField(upload_to='blog-images/',
-                              storage=fs, validators=[validate_image], blank=True, null=True)
-    image_links = models.CharField(max_length=500, blank=True, null=True)
+    images = models.ImageField(upload_to='blog-images/',
+                               storage=fs, validators=[validate_image], blank=True, null=True)
+    # image_links = models.TextField(max_length=500, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.id)
 
 
 class BlogPost(models.Model):

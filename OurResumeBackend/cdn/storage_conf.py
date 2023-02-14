@@ -17,7 +17,7 @@ if USE_SPACES:
     # AWS_LOCATION = 'space-our-resume/static'
     # STATIC_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{AWS_LOCATION}'
     # public media settings
-    PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
+    # PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
     # MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}'
 
     AWS_LOCATION = f'https://our-space.nyc3.digitaloceanspaces.com'

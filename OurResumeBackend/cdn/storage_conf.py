@@ -37,4 +37,4 @@ else:
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'space-our-resume/static'),
 # )
-# -----
+# ----

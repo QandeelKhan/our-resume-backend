@@ -17,11 +17,15 @@ if USE_SPACES:
 
     AWS_LOCATION = 'space-our-resume/static'
     STATIC_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{AWS_LOCATION}/'
-    # STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
     PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
     MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
+    # DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
+    # django < 4.2
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+    # django >= 4.2
+    # STORAGES = {"default": "storages.backends.s3boto3.S3Boto3Storage"}
 else:
     STATIC_URL = '/static/'
     STATIC_ROOT = BASE_DIR / "space-our-resume/static"

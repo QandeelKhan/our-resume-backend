@@ -9,7 +9,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 
 
 # make custom storage backend for image
-fs = FileSystemStorage(location='/media/blog-images/')
+fs = FileSystemStorage(location='blog-images/')
 
 
 def validate_image(image):

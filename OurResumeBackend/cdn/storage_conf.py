@@ -11,7 +11,7 @@ if USE_SPACES:
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-    AWS_LOCATION = 'space-our-resume/static'
+    AWS_LOCATION = 'our-space/space-our-resume/static'
     PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
     STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
     MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{PUBLIC_MEDIA_LOCATION}/'

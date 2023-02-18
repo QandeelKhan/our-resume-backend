@@ -14,8 +14,8 @@ if USE_SPACES:
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
     STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
-    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/media/'
-    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/static/'
+    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/our-space/space-our-resume/media/'
+    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/our-space/space-our-resume/static/'
 else:
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 

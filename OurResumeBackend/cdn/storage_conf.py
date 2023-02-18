@@ -6,11 +6,12 @@ from OurResumeBackend.settings.common import BASE_DIR
 USE_SPACES = config('USE_SPACES', cast=bool, default=False)
 
 if USE_SPACES:
-    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-    AWS_DEFAULT_ACL = 'public-read'
-    AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
+    AWS_ACCESS_KEY_ID = "DO00LF97WUUJ69Q639NQ"
+
+    AWS_SECRET_ACCESS_KEY = "PGeiUJEJ+1bW75HfFu7kX3E2X2vZDDhpEJjnOJ42p/0"
+    AWS_STORAGE_BUCKET_NAME = "our-space"
+    # AWS_DEFAULT_ACL = 'public-read'
+    AWS_S3_ENDPOINT_URL = "https://our-space.nyc3.digitaloceanspaces.com"
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
     STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'

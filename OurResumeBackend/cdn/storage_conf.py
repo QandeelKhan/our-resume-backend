@@ -1,21 +1,22 @@
-# # https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/blog-images/blog-img1.jpg
 import os
 from decouple import config
 from OurResumeBackend.settings.common import BASE_DIR
 
-USE_SPACES = config('USE_SPACES', cast=bool, default=False)
+USE_SPACES = config('USE_SPACES', cast=bool, default=True)
 
 if USE_SPACES:
-    AWS_ACCESS_KEY_ID = "DO007BAPKWY4BAW6NKH4"
-    AWS_SECRET_ACCESS_KEY = "pMtjT15IMU66fYWP3cU8aXlIwo3JgOHAYaNgH4cNKhQ"
-    AWS_STORAGE_BUCKET_NAME = "our-space"
-    # AWS_DEFAULT_ACL = 'public-read'
-    AWS_S3_ENDPOINT_URL = "https://our-space.nyc3.digitaloceanspaces.com"
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_DEFAULT_ACL = 'public-read'
+    AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+    AWS_LOCATION = 'space-our-resume/static'
+    PUBLIC_MEDIA_LOCATION = 'space-shoppingly/media'
+    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
+    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
     STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
-    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/media/'
-    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/our-space/space-our-resume/static/'
 else:
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
@@ -32,3 +33,10 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'space-our-resume/static')
 
     STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    BASE_DIR / 'space-our-resume/static',
+)
+# helping material
+# https://testdriven.io/blog/django-digitalocean-spaces/
+# https://shopingly-space.fra1.digitaloceanspaces.com/media/productimg/0_98drx4MegZUq4iTd.jpeg

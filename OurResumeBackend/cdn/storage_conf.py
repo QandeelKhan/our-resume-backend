@@ -62,7 +62,7 @@ DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.S3Boto3Storage'
 # STATIC_ROOT = BASE_DIR / "space-our-resume/static"
 # STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 # PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
-MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/space-our-resume/media/'
+MEDIA_URL = f'https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/blog-images/'
 # MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
 # DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 # django < 4.2

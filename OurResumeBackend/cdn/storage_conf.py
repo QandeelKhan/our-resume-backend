@@ -14,7 +14,7 @@ if USE_SPACES:
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.S3Boto3Storage'
-    MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}/"
+    MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}/space-our-resume/media/"
     STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}/static/"
     STATIC_ROOT = BASE_DIR / "space-our-resume/staticfiles"
 else:

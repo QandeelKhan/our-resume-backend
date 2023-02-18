@@ -62,12 +62,15 @@ DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.S3Boto3Storage'
 # STATIC_ROOT = BASE_DIR / "space-our-resume/static"
 # STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 # PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
-MEDIA_URL = f'https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/'
+MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/media/'
 # MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
 # DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 # django < 4.2
+# https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/blog-images/detail-img-1.jpg
 
 # django >= 4.2
 # STORAGES = {"default": "storages.backends.s3boto3.S3Boto3Storage"}
 # https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/blog-images/blog-img1.jpg
+# https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/blog-images/detail-img-1.jpg
+# https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/blog-images/detail-img-1.jpg
 # https://our-space.nyc3.cdn.digitaloceanspaces.com/space-our-resume/media/blog-images/detail-img-1.jpg

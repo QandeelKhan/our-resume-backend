@@ -192,10 +192,10 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1)
 }
 
-DEFAULT_FROM_EMAIL = 'from@haiderbuy.com'
+DEFAULT_FROM_EMAIL = 'com.qandeelhaider@gmail.com'
 
 ADMINS = [
-    ('Haider', 'admin@haiderbuy.com')
+    ('Haider', 'com.qandeelhaider@gmail.com')
 ]
 
 CELERY_BEAT_SCHEDULE = {
@@ -272,7 +272,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
 ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 PASSWORD_RESET_TIMEOUT = 900  # 900 Sec = 15min
 

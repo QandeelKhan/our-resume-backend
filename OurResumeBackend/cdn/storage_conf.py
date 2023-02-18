@@ -6,9 +6,8 @@ from OurResumeBackend.settings.common import BASE_DIR
 USE_SPACES = config('USE_SPACES', cast=bool, default=False)
 
 if USE_SPACES:
-    AWS_ACCESS_KEY_ID = "DO00LF97WUUJ69Q639NQ"
-
-    AWS_SECRET_ACCESS_KEY = "PGeiUJEJ+1bW75HfFu7kX3E2X2vZDDhpEJjnOJ42p/0"
+    AWS_ACCESS_KEY_ID = "DO007BAPKWY4BAW6NKH4"
+    AWS_SECRET_ACCESS_KEY = "pMtjT15IMU66fYWP3cU8aXlIwo3JgOHAYaNgH4cNKhQ"
     AWS_STORAGE_BUCKET_NAME = "our-space"
     # AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_ENDPOINT_URL = "https://our-space.nyc3.digitaloceanspaces.com"

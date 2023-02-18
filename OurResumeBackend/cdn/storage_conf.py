@@ -22,7 +22,7 @@ else:
     MEDIA_ROOT = BASE_DIR / 'space-our-resume/media/'
     STATIC_URL = '/static/'
     STATICFILES_DIRS = [BASE_DIR / 'static']
-    STATIC_ROOT = BASE_DIR / "staticfiles"
+    STATIC_ROOT = BASE_DIR / "space-our-resume/static/"
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     # 'silk',
-    'debug_toolbar',
+    # 'debug_toolbar',
     # 'rest_framework_swagger',
     # 'playground',
     # 'store',

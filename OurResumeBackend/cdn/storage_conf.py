@@ -5,11 +5,6 @@ from OurResumeBackend.settings.common import BASE_DIR
 
 USE_SPACES = config('USE_SPACES', cast=bool, default=False)
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "space-our-resume/static"
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
-
 if USE_SPACES:
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
@@ -19,6 +14,8 @@ if USE_SPACES:
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
     STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
+    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/media/'
+    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/static/'
 else:
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
@@ -34,16 +31,4 @@ else:
 
     STATIC_ROOT = os.path.join(BASE_DIR, 'space-our-resume/static')
 
-    STATIC_URL = '/static/'
-
-# media settings
-if USE_SPACES:
-    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/media/'
-else:
-    MEDIA_URL = '/media/'
-
-# static settings
-if USE_SPACES:
-    STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/space-our-resume/static/'
-else:
     STATIC_URL = '/static/'

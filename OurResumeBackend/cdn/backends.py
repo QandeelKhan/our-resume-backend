@@ -18,7 +18,6 @@ class MediaRootS3Boto3Storage(S3Boto3Storage):
     location = "media"
     default_acl = 'public-read'
 
-
 # above provided locations we set similar to our local settings so the directories
 # name and locations on the our hosted app on cloud look similar to our local file
 # structure. we can type any name i.e "static-abc", "root-abcd".

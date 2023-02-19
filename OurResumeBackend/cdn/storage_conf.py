@@ -35,7 +35,7 @@ else:
     STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    BASE_DIR / 'space-our-resume/static',
+    BASE_DIR / 'our-space/space-our-resume/static',
 )
 # helping material
 # https://testdriven.io/blog/django-digitalocean-spaces/

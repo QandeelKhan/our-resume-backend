@@ -14,7 +14,7 @@ class StaticRootS3Boto3Storage(S3Boto3Storage):
 
 
 class MediaRootS3Boto3Storage(S3Boto3Storage):
-    # bucket_name = 'our-space'
+    bucket_name = 'our-space'
     location = "media"
     default_acl = 'public-read'
 

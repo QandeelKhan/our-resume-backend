@@ -17,9 +17,8 @@ if USE_SPACES:
     MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
     STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
-    STATICFILES_DIRS = (
-        BASE_DIR / 'space-our-resume/static',
-    )
+    STATIC_ROOT = os.path.join(BASE_DIR, 'space-our-resume/static')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'space-our-resume/media')
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'space-our-resume/media')
 

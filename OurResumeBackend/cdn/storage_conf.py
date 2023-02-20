@@ -16,10 +16,6 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 
-# Django storage settings
-AWS_LOCATION = 'space-our-resume'  # set to a subdirectory if desired
-STATICFILES_LOCATION = 'static'
-MEDIAFILES_LOCATION = 'media'
 
 if USE_SPACES:
     # DigitalOcean Spaces settings
@@ -45,8 +41,10 @@ if USE_SPACES:
     MEDIA_URL = f"{AWS_S3_CUSTOM_DOMAIN}/space-our-resume/media/"
     MEDIA_ROOT = None
     STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
-    STATICFILES_LOCATION = 'static'
-    MEDIAFILES_LOCATION = 'media'
+    # Django storage settings
+    AWS_LOCATION = 'space-our-resume'  # set to a subdirectory if desired
+    STATICFILES_LOCATION = 'space-our-resume/static'
+    MEDIAFILES_LOCATION = 'space-our-resume/media'
 else:
     # Django default storage settings
     # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'

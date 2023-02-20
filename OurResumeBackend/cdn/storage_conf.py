@@ -25,15 +25,17 @@ if USE_SPACES:
     # # STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
 
     # Use DigitalOcean Spaces for static and media files
-    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    # STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    STATICFILES_STORAGE = 'OurResumeBackend.cdn.backends.StaticRootS3Boto3Storage'
+    # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 
     # Custom domain for serving static files from Spaces
     # AWS_S3_CUSTOM_DOMAIN = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}"
     # print(AWS_S3_CUSTOM_DOMAIN)
 
     # Static file settings
-    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/space-our-resume/"
+    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/space-our-resume/static"
     print(STATIC_URL)
     STATICFILES_DIRS = []
     STATIC_ROOT = None

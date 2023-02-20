@@ -6,10 +6,16 @@ from PIL import Image
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.core.files.storage import default_storage
+from decouple import config
 
 
 # make custom storage backend for image
-fs = FileSystemStorage(location='space-our-resume/media')
+USE_SPACES = config('USE_SPACES', cast=bool, default=True)
+if USE_SPACES:
+    fs = FileSystemStorage(location='space-our-resume/media')
+else:
+    fs = default_storage
 
 
 def validate_image(image):

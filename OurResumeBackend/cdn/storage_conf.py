@@ -4,7 +4,7 @@ from decouple import config
 from OurResumeBackend.settings.common import BASE_DIR
 
 USE_SPACES = config('USE_SPACES', cast=bool, default=True)
-MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
+# MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
 if USE_SPACES:
     # settings
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')

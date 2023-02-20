@@ -35,8 +35,8 @@ if USE_SPACES:
     # print(AWS_S3_CUSTOM_DOMAIN)
 
     # Static file settings
-    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/our-space/space-our-resume/"
-
+    # STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/our-space/space-our-resume/"
+    STATIC_URL = 'https://our-space.nyc3.digitaloceanspaces.com/our-space/space-our-resume/static/'
     print(STATIC_URL)
     STATIC_ROOT = None
 

@@ -33,7 +33,7 @@ if USE_SPACES:
     # print(AWS_S3_CUSTOM_DOMAIN)
 
     # Static file settings
-    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/space-our-resume/static/"
+    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/space-our-resume/"
     print(STATIC_URL)
     STATICFILES_DIRS = []
     STATIC_ROOT = None

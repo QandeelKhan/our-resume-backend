@@ -30,7 +30,7 @@ if USE_SPACES:
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
     # public media settings
-    PUBLIC_MEDIA_LOCATION = 'space-our-resume/media'
+    PUBLIC_MEDIA_LOCATION = 'space-our-resume/media/blog-images'
     MEDIA_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 else:

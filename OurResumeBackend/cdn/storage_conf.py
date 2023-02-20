@@ -13,7 +13,7 @@ if USE_SPACES:
     AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # static settings
-    AWS_LOCATION = 'space-shoppingly/static'
+    AWS_LOCATION = 'space-our-resume/static'
     STATIC_URL = f'https://our-space.nyc3.digitaloceanspaces.com/{AWS_LOCATION}/'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     # public media settings
@@ -23,12 +23,13 @@ if USE_SPACES:
     DEFAULT_FILE_STORAGE = 'OurResumeBackend.cdn.backends.MediaRootS3Boto3Storage'
 else:
     STATIC_URL = '/static/'
-    STATICFILES_DIRS = (
-        BASE_DIR / 'space-shoppingly/static',
-    )
-    STATIC_ROOT = BASE_DIR / "staticfiles"
+    STATIC_ROOT = BASE_DIR / "space-our-resume/static"
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'space-shoppingly/media'
+    MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
+
+# STATICFILES_DIRS = (
+#     BASE_DIR / 'space-our-resume/static',
+# )
 
 # helping material
 # https://testdriven.io/blog/django-digitalocean-spaces/

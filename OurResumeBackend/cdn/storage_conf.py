@@ -49,7 +49,7 @@ if USE_SPACES:
     MEDIAFILES_LOCATION = 'media'
 else:
     # Django default storage settings
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'space-our-resume/media')
     STATIC_ROOT = os.path.join(BASE_DIR, 'space-our-resume/static')
     MEDIA_URL = '/media/'

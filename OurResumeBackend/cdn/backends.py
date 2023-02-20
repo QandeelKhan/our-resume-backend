@@ -3,16 +3,19 @@ from storages.backends.s3boto3 import S3Boto3Storage
 # this will make upload our static folder into digitalocean,
 
 
-class StaticRootS3Boto3Storage(S3Boto3Storage):
-    location = "static"
+class StaticStorage(S3Boto3Storage):
+    bucket_name = 'our-space'
+    location = "space-our-resume/static"
     default_acl = 'public-read'
 
 
 # this will make anything uploading through our models will go there in media folder on digitalocean.
 
 
-class MediaRootS3Boto3Storage(S3Boto3Storage):
-    location = "space-our-resume/media/blog-images"
+class MediaStorage(S3Boto3Storage):
+    # bucket_name = '<your_space_name>'
+    bucket_name = 'our-space'
+    location = "space-our-resume/media"
     default_acl = 'public-read'
 
 

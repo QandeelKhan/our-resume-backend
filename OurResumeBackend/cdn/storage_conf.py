@@ -29,17 +29,17 @@ if USE_SPACES:
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
     # Custom domain for serving static files from Spaces
-    AWS_S3_CUSTOM_DOMAIN = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}"
-    print(AWS_S3_CUSTOM_DOMAIN)
+    # AWS_S3_CUSTOM_DOMAIN = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}"
+    # print(AWS_S3_CUSTOM_DOMAIN)
 
     # Static file settings
-    STATIC_URL = f"{AWS_S3_CUSTOM_DOMAIN}/space-our-resume/static/"
+    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/space-our-resume/static/"
     print(STATIC_URL)
     STATICFILES_DIRS = []
     STATIC_ROOT = None
 
     # Media file settings
-    MEDIA_URL = f"{AWS_S3_CUSTOM_DOMAIN}/space-our-resume/media/"
+    MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/space-our-resume/media/"
     MEDIA_ROOT = None
     STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
     # Django storage settings

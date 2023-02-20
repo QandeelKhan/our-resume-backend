@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # 'tags',
     # 'likes',
     'blog',
+    'OurResumeBackend',
     # --USER MANAGEMENT,
     'rest_framework_simplejwt',
     'UserManagement',

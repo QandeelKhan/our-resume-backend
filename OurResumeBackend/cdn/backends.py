@@ -12,7 +12,7 @@ class StaticRootS3Boto3Storage(S3Boto3Storage):
 
 
 class MediaRootS3Boto3Storage(S3Boto3Storage):
-    location = "space-our-resume/media"
+    location = "space-our-resume/media/blog-images"
     default_acl = 'public-read'
 
 

@@ -8,11 +8,9 @@ from django.core.files.storage import FileSystemStorage
 from PIL import Image
 from django.core.files.storage import default_storage
 from decouple import config
-
-
-def get_default_profile_image():
-    # change the path to your default profile image file
-    return 'space-our-resume/media/avatar-images/avatar-male.jpg'
+import boto3
+from botocore.exceptions import ClientError
+from django.core.files.base import ContentFile
 
 
 USE_SPACES = config('USE_SPACES', cast=bool, default=True)
@@ -58,7 +56,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     profile_image = models.ImageField(upload_to='profile-images/',
-                                      storage=fs, validators=[validate_image], blank=True, null=True, default=get_default_profile_image)
+                                      storage=fs, validators=[validate_image], blank=True, null=True, default='avatar-male.jpg')
     tc = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import BlogPost, BlogPostImage
+from .models import BlogPost, BlogPostImage, Comment
 
 
 class BlogPostImageSerializer(serializers.ModelSerializer):
@@ -16,8 +16,19 @@ class BlogPostImageSerializer(serializers.ModelSerializer):
         return None
 
 
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+
+# class BlogPostSerializer(serializers.ModelSerializer):
+#     comments = CommentSerializer(many=True, read_only=True)
+
+
 class BlogPostSerializer(serializers.ModelSerializer):
     post_images = BlogPostImageSerializer(many=True)
+    comments = CommentSerializer(many=True, read_only=True)
 
     class Meta:
         model = BlogPost

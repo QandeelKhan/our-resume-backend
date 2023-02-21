@@ -13,7 +13,6 @@ class StaticStorage(S3Boto3Storage):
 
 
 class MediaStorage(S3Boto3Storage):
-    # bucket_name = '<your_space_name>'
     bucket_name = 'our-space'
     location = "space-our-resume/media"
     default_acl = 'public-read'

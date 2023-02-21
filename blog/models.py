@@ -40,7 +40,7 @@ class BlogPostImage(models.Model):
     # image_links = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
-        return str(self.id)
+        return str(self.images)
 
 
 class BlogPost(models.Model):

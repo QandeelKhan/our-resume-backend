@@ -80,9 +80,9 @@ class Comment(models.Model):
 
 
 class Reply(models.Model):
-    comment = models.ForeignKey(
+    comment_id = models.ForeignKey(
         Comment, on_delete=models.CASCADE, related_name='replies')
-    author = models.ForeignKey(
+    author_id = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='replies')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

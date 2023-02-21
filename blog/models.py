@@ -13,9 +13,9 @@ from decouple import config
 # make custom storage backend for image
 USE_SPACES = config('USE_SPACES', cast=bool, default=True)
 if USE_SPACES:
-    fs = FileSystemStorage(location='space-our-resume/media')
-else:
     fs = default_storage
+else:
+    fs = FileSystemStorage(location='space-our-resume/media')
 
 
 def validate_image(image):

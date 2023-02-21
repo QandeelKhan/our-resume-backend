@@ -3,6 +3,30 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 
+from django.core.files.storage import FileSystemStorage
+from PIL import Image
+from django.core.files.storage import default_storage
+from decouple import config
+
+
+def get_default_profile_image():
+    # change the path to your default profile image file
+    return 'space-our-resume/media/avatar-images/avatar-male.jpg'
+
+
+USE_SPACES = config('USE_SPACES', cast=bool, default=True)
+if USE_SPACES:
+    fs = default_storage
+else:
+    fs = FileSystemStorage(location='space-our-resume/media')
+
+
+def validate_image(image):
+    try:
+        img = Image.open(image)
+        img.verify()
+    except (IOError, SyntaxError) as e:
+        raise ValidationError("Invalid image: %s" % e)
 # Create user manager.
 
 
@@ -51,6 +75,8 @@ class User(AbstractBaseUser):
     )
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    profile_image = models.ImageField(upload_to='profile-images/',
+                                      storage=fs, validators=[validate_image], blank=True, null=True, default=get_default_profile_image)
     tc = models.BooleanField()
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

@@ -8,9 +8,6 @@ from django.core.files.storage import FileSystemStorage
 from PIL import Image
 from django.core.files.storage import default_storage
 from decouple import config
-import boto3
-from botocore.exceptions import ClientError
-from django.core.files.base import ContentFile
 
 
 USE_SPACES = config('USE_SPACES', cast=bool, default=True)

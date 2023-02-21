@@ -1,46 +1,30 @@
-# from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-# from django.contrib import admin
-# from .models import User
-
-
-# @admin.register(User)
-# class UserAdmin(BaseUserAdmin):
-#     add_fieldsets = (
-#         (None, {
-#             'classes': ('wide',),
-#             'fields': ('username', 'password1', 'password2', 'email', 'first_name', 'last_name'),
-#         }),
-#     )
-
-
 from django.contrib import admin
-from UserManagement.models import User
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.admin import UserAdmin
+from .models import User
 
 
-class UserAdmin(BaseUserAdmin):
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserModelAdmin
-    # that reference specific fields on auth.User.
-    list_display = ('id', 'email', 'first_name', 'last_name', 'tc', 'is_admin')
-    list_filter = ('is_admin',)
+@admin.register(User)
+class CustomUserAdmin(UserAdmin):
+    list_display = ('email', 'first_name', 'last_name',
+                    'tc', 'is_staff', 'is_superuser')
+    search_fields = ('email', 'first_name', 'last_name')
+    ordering = ('email',)
+
     fieldsets = (
-        ('User Credentials', {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('first_name', "last_name", 'tc')}),
-        ('Permissions', {'fields': ('is_admin',)}),
+        (None, {'fields': ('email', 'password')}),
+        ('Personal Info', {'fields': ('first_name',
+         'last_name', 'tc', 'profile_image')}),
+        ('Permissions', {'fields': ('is_active',
+         'is_superuser', 'groups', 'user_permissions')}),
+        ('Important dates', {
+         'fields': ('last_login', 'created_at',)}),
     )
-    # add_fieldsets is not a standard ModelAdmin attribute. UserModelAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
+
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'first_name', 'last_name', 'tc', 'password1', 'password2'),
+            'fields': ('email', 'tc', 'first_name', 'last_name', 'password1', 'password2'),
         }),
     )
-    search_fields = ('email',)
-    ordering = ('email', 'id')
-    filter_horizontal = ()
 
-
-# Now register the new UserAdmin...
-admin.site.register(User, UserAdmin)
+    list_filter = ('is_active', 'is_superuser', 'is_staff', 'groups')

@@ -59,7 +59,8 @@ class BlogPost(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name="post_category")
 
     def __str__(self):
         return self.title

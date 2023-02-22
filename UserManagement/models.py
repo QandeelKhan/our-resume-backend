@@ -53,7 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     profile_image = models.ImageField(upload_to='profile-images/',
-                                      storage=fs, validators=[validate_image], blank=True, null=True, default='avatar-male.jpg')
+                                      storage=fs, validators=[validate_image], blank=True, null=True)
     tc = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

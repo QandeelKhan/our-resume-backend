@@ -55,7 +55,7 @@ class BlogPost(models.Model):
     post_images = models.ManyToManyField(
         BlogPostImage, related_name='post_images')
     paragraph_after_image = models.TextField()
-    author_id = models.ForeignKey(
+    author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -69,7 +69,7 @@ class BlogPost(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(
         BlogPost, on_delete=models.CASCADE, related_name='comments')
-    author_name = models.ForeignKey(
+    author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comments')
     created_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -78,11 +78,14 @@ class Comment(models.Model):
     def __str__(self):
         return self.comment_text
 
+    def __str__(self):
+        return f'{self.author.first_name} {self.author.last_name}: {self.comment_text}'
+
 
 class Reply(models.Model):
     comment_id = models.ForeignKey(
         Comment, on_delete=models.CASCADE, related_name='replies')
-    author_id = models.ForeignKey(
+    author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='replies')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -90,3 +93,6 @@ class Reply(models.Model):
 
     def __str__(self):
         return self.reply_text
+
+    def __str__(self):
+        return f'{self.author.first_name} {self.author.last_name}: {self.reply_text}'

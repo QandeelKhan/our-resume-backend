@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
     for authentication instead of usernames.
     """
 
-    def create_user(self, email, tc, first_name, last_name, password=None, **extra_fields):
+    def create_user(self, email, tc, first_name, last_name, password=None, password2=None, **extra_fields):
         """
         Create and save a user with the given email and password.
         """

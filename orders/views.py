@@ -6,8 +6,14 @@ from .serializers import OrderSerializer, OrderProgressSerializer
 
 class OrderListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
-    queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff or user.is_superuser:  # show all orders for staff and superusers
+            return Order.objects.all()
+        else:
+            return Order.objects.filter(user=user)
 
 
 class OrderDetailAPIView(generics.RetrieveUpdateDestroyAPIView):

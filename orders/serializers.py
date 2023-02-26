@@ -3,6 +3,8 @@ from .models import Order, OrderProgress
 
 
 class OrderSerializer(serializers.ModelSerializer):
+    order_count = serializers.SerializerMethodField()
+
     class Meta:
         model = Order
         fields = (
@@ -17,8 +19,12 @@ class OrderSerializer(serializers.ModelSerializer):
             'total_price',
             'created_at',
             'due_date',
-            'updated_at'
+            'updated_at',
+            'order_count'
         )
+
+    def get_order_count(self, obj):
+        return Order.objects.filter(user=obj.user).count()
 
 
 class OrderProgressSerializer(serializers.ModelSerializer):

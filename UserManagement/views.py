@@ -13,7 +13,8 @@ from UserManagement.serializers import (
     UserPasswordResetSerializer,
     UserProfileSerializer,
     UserRegistrationSerializer,
-    GoogleLoginSerializer
+
+    GoogleLoginSerializer,
 )
 
 
@@ -117,3 +118,13 @@ class LogoutView(APIView):
     def post(self, request, *args, **kwargs):
         logout(request)
         return Response({"message": "Successfully logged out."}, status=status.HTTP_200_OK)
+
+
+class CommentCreateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, format=None):
+        serializer = CommentSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        comment = serializer.save(author=request.user)
+        return Response(CommentSerializer(comment).data, status=201)

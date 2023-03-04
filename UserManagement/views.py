@@ -13,7 +13,6 @@ from UserManagement.serializers import (
     UserPasswordResetSerializer,
     UserProfileSerializer,
     UserRegistrationSerializer,
-
     GoogleLoginSerializer,
 )
 
@@ -77,7 +76,13 @@ class UserLoginView(generics.CreateAPIView):
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class UserProfileView(generics.RetrieveAPIView):
+# class UserProfileView(generics.RetrieveAPIView):
+#     permission_classes = [IsAuthenticated]
+#     serializer_class = UserProfileSerializer
+
+#     def get_object(self):
+#         return self.request.user
+class UserProfileView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserProfileSerializer
 

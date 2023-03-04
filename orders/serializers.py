@@ -12,6 +12,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'user',
             'order_type',
             'status',
+            'active_status',
             'payment_status',
             'description',
             'project_name',

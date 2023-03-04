@@ -29,7 +29,8 @@ class Order(models.Model):
         User, on_delete=models.CASCADE, related_name='orders')
     order_type = models.CharField(max_length=50, choices=TYPE_CHOICES)
     status = models.CharField(
-        max_length=50, choices=STATUS_CHOICES, default='pending')
+        max_length=50, choices=STATUS_CHOICES, default='pending', null=True, blank=True)
+    active_status = models.BooleanField(default=False, null=True, blank=True)
     payment_status = models.CharField(
         max_length=50, choices=PAYMENT_CHOICES, default='pending')
     description = models.TextField()

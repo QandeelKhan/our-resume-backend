@@ -2,12 +2,28 @@ from rest_framework import serializers
 from .models import Order, OrderProgress
 
 
+class OrderProgressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderProgress
+        fields = (
+            'id',
+            'order',
+            'frontend_percentage',
+            'backend_percentage',
+            'design_percentage',
+            'created_at',
+            'updated_at'
+        )
+
+
 class OrderSerializer(serializers.ModelSerializer):
     order_count = serializers.SerializerMethodField()
+    order_progress = OrderProgressSerializer()
 
     class Meta:
         model = Order
         fields = (
+            'order_progress',
             'id',
             'user',
             'order_type',
@@ -26,17 +42,3 @@ class OrderSerializer(serializers.ModelSerializer):
 
     def get_order_count(self, obj):
         return Order.objects.filter(user=obj.user).count()
-
-
-class OrderProgressSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = OrderProgress
-        fields = (
-            'id',
-            'order',
-            'frontend_percentage',
-            'backend_percentage',
-            'design_percentage',
-            'created_at',
-            'updated_at'
-        )

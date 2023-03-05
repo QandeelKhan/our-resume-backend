@@ -18,12 +18,10 @@ class OrderProgressSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     order_count = serializers.SerializerMethodField()
-    order_progress = OrderProgressSerializer()
 
     class Meta:
         model = Order
         fields = (
-            'order_progress',
             'id',
             'user',
             'order_type',

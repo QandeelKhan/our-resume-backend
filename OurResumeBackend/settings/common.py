@@ -275,6 +275,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "https://our-resume-backend-azr8u.ondigitalocean.app",
     "https://our-resume-backend-azr8u.ondigitalocean.app/api/user/profile/",
+    "https://nyc3.digitaloceanspaces.com",
     "*"
 ]
 # CORS_ALLOWED_ORIGINS = ["*"]

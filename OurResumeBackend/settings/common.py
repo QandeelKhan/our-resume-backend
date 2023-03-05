@@ -275,9 +275,10 @@ SIMPLE_JWT = {
 #     "http://localhost:8000",
 #     "https://our-resume-backend-azr8u.ondigitalocean.app"
 # ]
-CORS_ALLOWED_ORIGINS = ["*"]
+# CORS_ALLOWED_ORIGINS = ["*"]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 PASSWORD_RESET_TIMEOUT = 900  # 900 Sec = 15min
 

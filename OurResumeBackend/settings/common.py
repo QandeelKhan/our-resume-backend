@@ -268,14 +268,16 @@ SIMPLE_JWT = {
 
 # -----CORS
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:8000",
-    "http://localhost:8000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://127.0.0.1:3000",
+#     "http://127.0.0.1:8000",
+#     "http://localhost:8000",
+#     "https://our-resume-backend-azr8u.ondigitalocean.app"
+# ]
+CORS_ALLOWED_ORIGINS = ["*"]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 PASSWORD_RESET_TIMEOUT = 900  # 900 Sec = 15min
 

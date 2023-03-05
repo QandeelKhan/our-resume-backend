@@ -40,9 +40,9 @@ else:
     MEDIA_ROOT = BASE_DIR / 'space-our-resume/media'
 
 
-STATICFILES_DIRS = (
-    BASE_DIR / 'space-our-resume/static',
-)
+# STATICFILES_DIRS = (
+#     BASE_DIR / 'space-our-resume/static',
+# )
 
 # helping material
 # https://testdriven.io/blog/django-digitalocean-spaces/

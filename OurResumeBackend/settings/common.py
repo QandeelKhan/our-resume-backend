@@ -268,24 +268,26 @@ SIMPLE_JWT = {
 
 # -----CORS
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-#     "http://127.0.0.1:8000",
-#     "http://localhost:8000",
-#     "https://our-resume-backend-azr8u.ondigitalocean.app"
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
+    "https://our-resume-backend-azr8u.ondigitalocean.app",
+    "https://our-resume-backend-azr8u.ondigitalocean.app/api/user/profile/",
+    "*"
+]
 # CORS_ALLOWED_ORIGINS = ["*"]
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
 
 
 PASSWORD_RESET_TIMEOUT = 900  # 900 Sec = 15min
 
 # for react origin
-SECURE_CONTENT_TYPE_NOSNIFF = False
-SECURE_BROWSER_XSS_FILTER = False
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-X_FRAME_OPTIONS = 'DENY'
+# SECURE_CONTENT_TYPE_NOSNIFF = False
+# SECURE_BROWSER_XSS_FILTER = False
+# SECURE_SSL_REDIRECT = False
+# SESSION_COOKIE_SECURE = False
+# CSRF_COOKIE_SECURE = False
+# X_FRAME_OPTIONS = 'DENY'

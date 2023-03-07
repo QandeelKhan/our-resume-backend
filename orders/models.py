@@ -7,22 +7,22 @@ User = get_user_model()
 
 class Order(models.Model):
     STATUS_CHOICES = (
-        ('pending', 'Pending'),
-        ('in_progress', 'In Progress'),
-        ('completed', 'Completed'),
-        ('cancelled', 'Cancelled')
+        ('pending', 'pending'),
+        ('in_progress', 'in_Progress'),
+        ('completed', 'completed'),
+        ('cancelled', 'cancelled')
     )
 
     PAYMENT_CHOICES = (
-        ('pending', 'Pending'),
-        ('approved', 'Approved'),
-        ('cancelled', 'Cancelled')
+        ('pending', 'pending'),
+        ('approved', 'approved'),
+        ('cancelled', 'cancelled')
     )
 
     TYPE_CHOICES = (
-        ('e-commerce', 'E-commerce'),
-        ('blog', 'Blog'),
-        ('custom', 'Custom')
+        ('e-commerce', 'e-commerce'),
+        ('blog', 'blog'),
+        ('custom', 'custom')
     )
 
     user = models.ForeignKey(

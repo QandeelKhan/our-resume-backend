@@ -33,7 +33,6 @@ class Order(models.Model):
     active_status = models.BooleanField(default=False, null=True, blank=True)
     payment_status = models.CharField(
         max_length=50, choices=PAYMENT_CHOICES, default='pending')
-    description = models.TextField()
     project_name = models.CharField(max_length=255)
     project_description = models.TextField()
     total_price = models.DecimalField(

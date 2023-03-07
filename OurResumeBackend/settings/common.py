@@ -275,10 +275,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "https://our-resume-backend-azr8u.ondigitalocean.app",
     "https://nyc3.digitaloceanspaces.com",
+    "*"
 ]
 # CORS_ALLOWED_ORIGINS = ["*"]
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
 
 
 PASSWORD_RESET_TIMEOUT = 900  # 900 Sec = 15min

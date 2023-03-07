@@ -28,7 +28,6 @@ class OrderSerializer(serializers.ModelSerializer):
             'status',
             'active_status',
             'payment_status',
-            'description',
             'project_name',
             'project_description',
             'total_price',

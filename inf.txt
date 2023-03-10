@@ -53,4 +53,4 @@ provision our smtp server (ad-on Mailgun):
 -----DATABASE-FOR-OUR-RESUME-CLIENT
 Enter the username: OurResumeUser
 Enter the password: com.1995
-Enter the database name: OurResumeDB
+Enter the database name: OurResumeDBs
